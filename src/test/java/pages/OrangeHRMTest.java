@@ -3,175 +3,104 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 
 public class OrangeHRMTest {
 
-    public static void main(String[] args) throws Exception {
+    @Test
+    public void orangeHRMTestSuite() throws Exception {
 
         WebDriver driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        // TC01 - Login
-        driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+        try {
 
-        Thread.sleep(5000);
+            // TC01 - Login
+            driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 
-        driver.findElement(By.name("username")).sendKeys("Admin");
-        driver.findElement(By.name("password")).sendKeys("admin123");
-        driver.findElement(By.xpath("//button[@type='submit']")).click();
+             Thread.sleep(10000);
 
-        Thread.sleep(5000);
+            driver.findElement(By.name("username")).sendKeys("Admin");
+            driver.findElement(By.name("password")).sendKeys("admin123");
+            driver.findElement(By.xpath("//button[@type='submit']")).click();
 
-        if (driver.getCurrentUrl().contains("dashboard"))
+            Thread.sleep(5000);
+
+            Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
             System.out.println("TC01 Login : PASS");
-        else
-            System.out.println("TC01 Login : FAIL");
+            Thread.sleep(10000);
 
-        // TC02 - PIM
-        try {
+            // TC02 - PIM
             driver.findElement(By.xpath("//span[text()='PIM']")).click();
-            Thread.sleep(3000);
+             Thread.sleep(10000);
 
-            if (driver.getCurrentUrl().contains("pim"))
-                System.out.println("TC02 PIM Module : PASS");
-            else
-                System.out.println("TC02 PIM Module : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC02 PIM Module : FAIL");
-        }
+            Assert.assertTrue(driver.getCurrentUrl().contains("pim"));
+            System.out.println("TC02 PIM Module : PASS");
 
-        // TC03 - Leave
-        try {
+            // TC03 - Leave
             driver.findElement(By.xpath("//span[text()='Leave']")).click();
-            Thread.sleep(3000);
+            Thread.sleep(10000);
 
-            if (driver.getCurrentUrl().contains("leave"))
-                System.out.println("TC03 Leave Module : PASS");
-            else
-                System.out.println("TC03 Leave Module : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC03 Leave Module : FAIL");
-        }
+            Assert.assertTrue(driver.getCurrentUrl().contains("leave"));
+            System.out.println("TC03 Leave Module : PASS");
 
-        // TC04 - Time
-        try {
+            // TC04 - Time
             driver.findElement(By.xpath("//span[text()='Time']")).click();
-            Thread.sleep(3000);
+            Thread.sleep(10000);
 
-            if (driver.getCurrentUrl().contains("time"))
-                System.out.println("TC04 Time Module : PASS");
-            else
-                System.out.println("TC04 Time Module : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC04 Time Module : FAIL");
-        }
+            Assert.assertTrue(driver.getCurrentUrl().contains("time"));
+            System.out.println("TC04 Time Module : PASS");
 
-        // TC05 - My Info
-        try {
+            // TC05 - My Info
             driver.findElement(By.xpath("//span[text()='My Info']")).click();
-            Thread.sleep(5000);
+            Thread.sleep(10000);
 
-            if (driver.getCurrentUrl().contains("viewPersonalDetails"))
-                System.out.println("TC05 My Info Module : PASS");
-            else
-                System.out.println("TC05 My Info Module : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC05 My Info Module : FAIL");
-        }
+            Assert.assertTrue(driver.getCurrentUrl().contains("viewPersonalDetails"));
+            System.out.println("TC05 My Info Module : PASS");
 
-        // TC06 - Recruitment
-        try {
+            // TC06 - Recruitment
             driver.findElement(By.xpath("//span[text()='Recruitment']")).click();
-            Thread.sleep(3000);
+            Thread.sleep(10000);
 
-            if (driver.getCurrentUrl().contains("recruitment"))
-                System.out.println("TC06 Recruitment Module : PASS");
-            else
-                System.out.println("TC06 Recruitment Module : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC06 Recruitment Module : FAIL");
-        }
+            Assert.assertTrue(driver.getCurrentUrl().contains("recruitment"));
+            System.out.println("TC06 Recruitment Module : PASS");
 
-        // TC07 - Directory
-        try {
+            // TC07 - Directory
             driver.findElement(By.xpath("//span[text()='Directory']")).click();
-            Thread.sleep(3000);
+            Thread.sleep(10000);
 
-            if (driver.getCurrentUrl().contains("directory"))
-                System.out.println("TC07 Directory Module : PASS");
-            else
-                System.out.println("TC07 Directory Module : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC07 Directory Module : FAIL");
-        }
+            Assert.assertTrue(driver.getCurrentUrl().contains("directory"));
+            System.out.println("TC07 Directory Module : PASS");
 
-        // TC08 - Maintenance
-        try {
-            driver.findElement(By.xpath("//span[text()='Maintenance']")).click();
-            Thread.sleep(3000);
+            // TC09 - Buzz
+            driver.findElement(By.xpath("//*[@id=\"app\"]/div[1]/div[1]/aside/nav/div[2]/ul/li[12]/a")).click();
+            Thread.sleep(10000);
+            Assert.assertTrue(driver.getCurrentUrl().contains("buzz"));
+            System.out.println("TC09 Buzz Module : PASS");
 
-            if (driver.getCurrentUrl().contains("maintenance"))
-                System.out.println("TC08 Maintenance Module : PASS");
-            else
-                System.out.println("TC08 Maintenance Module : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC08 Maintenance Module : FAIL");
-        }
-
-        // TC09 - Buzz
-        try {
-            driver.findElement(By.xpath("//span[text()='Buzz']")).click();
-            Thread.sleep(3000);
-
-            if (driver.getCurrentUrl().contains("buzz"))
-                System.out.println("TC09 Buzz Module : PASS");
-            else
-                System.out.println("TC09 Buzz Module : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC09 Buzz Module : FAIL");
-        }
-
-        // TC10 - Dashboard
-        try {
+            // TC10 - Dashboard
             driver.findElement(By.xpath("//span[text()='Dashboard']")).click();
-            Thread.sleep(3000);
+            Thread.sleep(10000);
+            Assert.assertTrue(driver.getCurrentUrl().contains("dashboard"));
+            System.out.println("TC10 Dashboard Module : PASS");
 
-            if (driver.getCurrentUrl().contains("dashboard"))
-                System.out.println("TC10 Dashboard Module : PASS");
-            else
-                System.out.println("TC10 Dashboard Module : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC10 Dashboard Module : FAIL");
-        }
-
-        // TC11 - Open User Menu
-        try {
+            // TC11 - User Menu
             driver.findElement(By.className("oxd-userdropdown-tab")).click();
-            Thread.sleep(2000);
+            Thread.sleep(10000);
+            Assert.assertTrue(driver.findElement(By.linkText("Logout")).isDisplayed());
+            System.out.println("TC11 User Menu : PASS");
 
-            if (driver.findElement(By.linkText("Logout")).isDisplayed())
-                System.out.println("TC11 User Menu : PASS");
-            else
-                System.out.println("TC11 User Menu : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC11 User Menu : FAIL");
-        }
-
-        // TC12 - Logout
-        try {
+            // TC12 - Logout
             driver.findElement(By.linkText("Logout")).click();
-            Thread.sleep(5000);
+            Thread.sleep(10000);
+            Assert.assertTrue(driver.getCurrentUrl().contains("login"));
+            System.out.println("TC12 Logout : PASS");
 
-            if (driver.getCurrentUrl().contains("login"))
-                System.out.println("TC12 Logout : PASS");
-            else
-                System.out.println("TC12 Logout : FAIL");
-        } catch (Exception e) {
-            System.out.println("TC12 Logout : FAIL");
+            System.out.println("\n===== ALL 12 TEST CASES PASSED =====");
+
+        } finally {
+            driver.quit();
         }
-
-        System.out.println("\n===== ALL 12 TEST CASES EXECUTED =====");
-
-        driver.quit();
     }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2026-06-18T17:31:00 IST" name="Surefire suite" finished-at="2026-06-18T17:33:32 IST" duration-ms="152108">
+    <groups>
+    </groups>
+    <test started-at="2026-06-18T17:31:00 IST" name="Surefire test" finished-at="2026-06-18T17:33:32 IST" duration-ms="152108">
+      <class name="pages.OrangeHRMTest">
+        <test-method signature="orangeHRMTestSuite()[pri:0, instance:pages.OrangeHRMTest@5e4c8041]" started-at="2026-06-18T17:31:00 IST" name="orangeHRMTestSuite" finished-at="2026-06-18T17:33:32 IST" duration-ms="152094" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- orangeHRMTestSuite -->
+      </class> <!-- pages.OrangeHRMTest -->
+    </test> <!-- Surefire test -->
+  </suite> <!-- Surefire suite -->
+</testng-results>
